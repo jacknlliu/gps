@@ -267,6 +267,12 @@ To learn how to make your own experiment and/or set your own initial and target 
 
 To run the code on a simulated UR be sure to first follow the instructions above for ROS setup.
 
+You will need the urdf dependencies.
+```sh
+sudo apt-get install ros-indigo-urdf*
+sudo apt-get install xacro
+sudo apt-get install robot-model
+
 You must also set an environmental variable UR_PATH that makes gps aware of the location of the installed universal_robot package. You can do this be adding the following to your .bashrc.
 
 ```sh
