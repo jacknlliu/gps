@@ -274,6 +274,16 @@ sudo apt-get install xacro
 sudo apt-get install robot-model
 ```
 
+If you build ros-industrial from source, it should be fine. But if you install the ros-industrial stack using apt-get, these folders are inside /opt/ros, which is only writable by root, so it is probably better to download these files into a workspace/folder you own:
+
+https://github.com/ros-industrial/universal_robot/tree/indigo/ur_description/urdf 
+
+For ROS >= Indigo, you need to manually convert these xacro files to urdf. One way to do so is to call and then point to:
+
+```sh
+rosrun xacro xacro --inorder -o ur5_robot.urdf ur5_robot.xacro
+```
+
 You must also set an environmental variable UR_PATH that makes gps aware of the location of the installed universal_robot package. For ROS < Indigo, you can do this be adding the following to your .bashrc:
 
 ```sh
@@ -284,14 +294,6 @@ After adding this line run:
 ```sh
 source .bashrc
 ```
-
-For ros >= Indigo, you need to manually convert these xacro files to urdf. One wya to do so is to call and then point to:
-
-```sh
-rosrun xacro xacro --inorder -o ur5_robot.urdf ur5_robot.xacro
-```
-
-If you build ros-industrial from source, it should be fine. But if you install the ros-industrial stack using apt-get, these folders are inside /opt/ros, which you will not want to write to them directly. Instead, you can download these files https://github.com/ros-industrial/universal_robot/tree/indigo/ur_description/urdf into a workspace/folder owned by you, and then use xacro for converting format.
 
 ###### 1. Start the controller
 
