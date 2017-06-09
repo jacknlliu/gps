@@ -267,13 +267,14 @@ To learn how to make your own experiment and/or set your own initial and target 
 
 To run the code on a simulated UR be sure to first follow the instructions above for ROS setup.
 
-You will need the urdf dependencies.
+You will need the following dependencies:
 ```sh
 sudo apt-get install ros-indigo-urdf*
 sudo apt-get install xacro
 sudo apt-get install robot-model
+```
 
-You must also set an environmental variable UR_PATH that makes gps aware of the location of the installed universal_robot package. You can do this be adding the following to your .bashrc.
+You must also set an environmental variable UR_PATH that makes gps aware of the location of the installed universal_robot package. For ROS < Indigo, ou can do this be adding the following to your .bashrc:
 
 ```sh
 export UR_PATH=/path/to/universal_robot
@@ -283,6 +284,14 @@ After adding this line run:
 ```sh
 source .bashrc
 ```
+
+For ros >= Indigo, you need to manually convert these xacro files to urdf. One wya to do so is to call and then point to:
+
+```sh
+rosrun xacro xacro --inorder -o ur5_robot.urdf ur5_robot.xacro
+```
+
+If you build ros-industrial from source, it should be fine. But if you install the ros-industrial stack using apt-get, these folders are inside /opt/ros, which you will not want to write to them directly. Instead, you can download these files https://github.com/ros-industrial/universal_robot/tree/indigo/ur_description/urdf into a workspace/folder owned by you, and then use xacro for converting format.
 
 ###### 1. Start the controller
 
