@@ -274,7 +274,7 @@ sudo apt-get install xacro
 sudo apt-get install robot-model
 ```
 
-You must also set an environmental variable UR_PATH that makes gps aware of the location of the installed universal_robot package. For ROS < Indigo, ou can do this be adding the following to your .bashrc:
+You must also set an environmental variable UR_PATH that makes gps aware of the location of the installed universal_robot package. For ROS < Indigo, you can do this be adding the following to your .bashrc:
 
 ```sh
 export UR_PATH=/path/to/universal_robot
