@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # To get started, copy over hyperparams from another experiment.
 # Visit rll.berkeley.edu/gps/hyperparams.html for documentation.
 """ Hyperparameters for UR trajectory optimization experiment. """

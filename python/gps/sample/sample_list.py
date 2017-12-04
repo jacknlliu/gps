@@ -1,5 +1,6 @@
 """ This file defines the sample list wrapper and sample writers. """
-import cPickle
+# import cPickle
+from six.moves import cPickle
 import logging
 
 import numpy as np
